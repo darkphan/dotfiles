@@ -149,11 +149,4 @@ modi: "window,drun,ssh,run";
 /*  me-accept-entry: "MouseDPrimary";*/
 /*  me-accept-custom: "Control+MouseDPrimary";*/
 }
-//@theme "/usr/share/rofi/themes/android_notification.rasi"
-/*  window { fullscreen: true; } */@theme "/usr/share/rofi/themes/Arc-Dark-Polo.rasi"
-//@theme "/usr/share/rofi/themes/Arc-Dark-Havelock.rasi"
-//@theme "/usr/share/rofi/themes/Arc-Dark-Tory.rasi"
-//@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
-//@theme "/home/darkphan/.config/rofi/themes/darkphanColors.rasi"
-//@theme "/home/darkphan/.config/rofi/themes/tokyonightEColors.rasi"
 @theme "/home/darkphan/.config/rofi/themes/darkphanTokyonightColors.rasi"
