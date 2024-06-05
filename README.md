@@ -31,4 +31,6 @@ then use GNU stow to create symlinks
 ```
 $ stow .
 ```
+# Note:
 
+The fish configs rely on being installed on CachyOS. I will clean this up eventually so its not dependant on that
