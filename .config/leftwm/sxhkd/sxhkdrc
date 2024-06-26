@@ -36,7 +36,7 @@ super + F7
 
 #Thunar
 super + F8
-    thunar
+    pcmanfm
 
 #Evolution
 super + F9
