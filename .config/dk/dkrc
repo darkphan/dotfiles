@@ -38,7 +38,7 @@ fi
 	dkcmd set win_minwh=50 win_minxy=10
 	dkcmd set mouse mod=mod4 move=button1 resize=button3
 
-	#dkcmd set obey_motif=true
+	dkcmd set obey_motif=false
 	border_width=2
 	border_outer_width=2
 
@@ -55,7 +55,7 @@ fi
 	#
 	#
 
-	dkcmd rule class="steam" ws=9 float=true
+	dkcmd rule class="steam" ws=9 float=true x=center right y=center top w=1280 h=720
 	dkcmd rule class="obs" ws=4
 	dkcmd rule class="prismlauncher" ws=3
 	dkcmd rule class="^Minecraft$" ws=3
@@ -71,7 +71,8 @@ fi
 	dkcmd rule class="^(pavucontrol|transmission-gtk|lxappearance|flameshot)$" float=true
 
 	# define some terminals and allow them to be absorbed by spawned windows
-	dkcmd rule class="^(st|st-256color|urxvt|kitty|alacritty|xterm|xterm-256colors|wezterm)$" terminal=true
+	dkcmd rule class="^(st|st-256color|urxvt|kitty|alacritty|xterm|xterm-256colors)$" terminal=true
+	dkcmd rule class="org.wezfurlong.wezterm" terminal=true
 
 	# apply current rule set to all existing windows (used mainly for WM restart)
 	dkcmd rule apply '*'

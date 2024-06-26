@@ -15,22 +15,19 @@
 killall -q polybar
 
 # Wait until the processes have been shut down
-while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
 
 desktop=$(echo $DESKTOP_SESSION)
 count=$(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l)
 
 case $desktop in
 
-dk | /usr/share/xsessions/dk)
-	if type "xrandr" >/dev/null; then
-		index=0
-		for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-			MONITOR=$m polybar --reload mainbar-dk$index -c ~/.config/dk/polybar/config.ini &
-			let index=index+1
-		done
-	else
-		polybar --reload mainbar-dk -c ~/.config/dk/polybar/config.ini &
-	fi
-	;;
+    dk|/usr/share/xsessions/dk)
+    if type "xrandr" > /dev/null; then
+      for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+        MONITOR=$m polybar --reload mainbar-dk -c ~/.config/dk/polybar/config.ini &
+      done
+    else
+    polybar --reload mainbar-dk -c ~/.config/dk/polybar/config.ini &
+    fi
 esac
