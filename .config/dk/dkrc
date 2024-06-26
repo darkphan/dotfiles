@@ -1,0 +1,81 @@
+#!/bin/sh
+
+# determine where to place the log file
+logfile="$HOME/.dkrc.log"
+[ -d "$HOME/.local/share/xorg" ] && logfile="$HOME/.local/share/xorg/dkrc.log"
+: >"$logfile"
+
+# (re)load sxhkd for keybinds
+if hash sxhkd >/dev/null 2>&1; then
+	pkill sxhkd
+	sxhkd -c "$HOME/.config/dk/sxhkdrc" &
+fi
+
+# workspace settings
+# ------------------------
+
+{
+	dkcmd set numws=9
+	dkcmd set ws=_ apply layout=tile master=1 stack=3 gap=5 msplit=0.5 ssplit=0.5
+	dkcmd set smart_gap=false smart_border=false
+
+	dkcmd set \
+		ws=1 name="1" \
+		ws=2 name="2" layout=grid \
+		ws=3 name="3" \
+		ws=4 name="4" \
+		ws=5 name="5" \
+		ws=6 name="6" \
+		ws=7 name="7" \
+		ws=8 name="8" \
+		ws=9 name="9"
+
+	# global settings
+	# ---------------------
+
+	dkcmd set focus_open=true focus_urgent=false focus_mouse=true
+	dkcmd set tile_tohead=0 tile_hints=false
+	dkcmd set win_minwh=50 win_minxy=10
+	dkcmd set mouse mod=mod4 move=button1 resize=button3
+
+	#dkcmd set obey_motif=true
+	border_width=2
+	border_outer_width=2
+
+	dkcmd set border width=$border_width outer_width=$border_outer_width \
+		colour \
+		focus='#43a4c4' \
+		unfocus='#067499' \
+		urgent='#ee5555' \
+		outer_focus='#43a4c4' \
+		outer_unfocus='#067499' \
+		outer_urgent='#222222'
+
+	# window rules
+	#
+	#
+
+	dkcmd rule class="steam" ws=9 float=true
+	dkcmd rule class="obs" ws=4
+	dkcmd rule class="prismlauncher" ws=3
+	dkcmd rule class="^Minecraft$" ws=3
+
+	dkcmd rule class="pretzel.exe" ws=4
+	dkcmd rule class="discord" ws=2
+	dkcmd rule class="ground control.exe" ws=2
+	dkcmd rule class="chatty-Chatty" ws=2
+	dkcmd rule title="^Channel Admin$" ws=2 float=true
+	dkcmd rule title="^Channel: $" ws=2 float=true
+
+	# open window(s) in a floating state
+	dkcmd rule class="^(pavucontrol|transmission-gtk|lxappearance|flameshot)$" float=true
+
+	# define some terminals and allow them to be absorbed by spawned windows
+	dkcmd rule class="^(st|st-256color|urxvt|kitty|alacritty|xterm|xterm-256colors|wezterm)$" terminal=true
+
+	# apply current rule set to all existing windows (used mainly for WM restart)
+	dkcmd rule apply '*'
+} >>"$logfile" 2>&1
+
+# Run stuff
+$HOME/.config/dk/autostart.sh
