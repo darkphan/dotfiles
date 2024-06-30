@@ -96,16 +96,15 @@ super + m
 
 #alacritty
 super + Return
-    wezterm
+    kitty
 
 #Xkill
 super + Escape
     xkill
 
 #Keyboard dependent
-#alacritty
-super + KP_Enter
-	wezterm
+#super + KP_Enter
+#	wezterm
 
 #################################################################
 # SUPER + SHIFT KEYS
@@ -206,12 +205,12 @@ ctrl + alt + s
    spotify
 
 #alacritty
-ctrl + alt + Return
-    alacritty
+#ctrl + alt + Return
+#    alacritty
 
 #alacritty
-ctrl + alt + t
-    alacritty
+#ctrl + alt + t
+#    alacritty
 
 #Vivaldi
 ctrl + alt + v

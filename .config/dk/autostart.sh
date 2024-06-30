@@ -38,9 +38,11 @@ numlockx off &
 blueberry-tray &
 picom --config $HOME/.config/dk/picom.conf &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-/usr/lib/xfce4/notifyd/xfce4-notifyd &
+#/usr/lib/xfce4/notifyd/xfce4-notifyd &
+dunst &
 run volumeicon &
-run goxlr-dawmon &
+run goxlr-daemon &
+run xscreensaver &
 #nitrogen --restore &
 #run caffeine &
 #run vivaldi-stable &

@@ -16,7 +16,7 @@ fi
 
 {
 	dkcmd set numws=9
-	dkcmd set ws=_ apply layout=tile master=1 stack=3 gap=5 msplit=0.5 ssplit=0.5
+	dkcmd set ws=_ apply layout=tile master=1 stack=3 gap=7 msplit=0.5 ssplit=0.5
 	dkcmd set smart_gap=false smart_border=false
 
 	dkcmd set \
@@ -39,23 +39,23 @@ fi
 	dkcmd set mouse mod=mod4 move=button1 resize=button3
 
 	dkcmd set obey_motif=false
-	border_width=2
-	border_outer_width=2
+	border_width=3
+	border_outer_width=1
 
 	dkcmd set border width=$border_width outer_width=$border_outer_width \
 		colour \
 		focus='#43a4c4' \
 		unfocus='#067499' \
-		urgent='#ee5555' \
+		urgent='#43a4c4' \
 		outer_focus='#43a4c4' \
 		outer_unfocus='#067499' \
-		outer_urgent='#222222'
+		outer_urgent='#43a4c4'
 
 	# window rules
 	#
 	#
 
-	dkcmd rule class="steam" ws=9 float=true x=center right y=center top w=1280 h=720
+	dkcmd rule class="steam" ws=9 float=true x=center y=center w=1280 h=720
 	dkcmd rule class="obs" ws=4
 	dkcmd rule class="prismlauncher" ws=3
 	dkcmd rule class="^Minecraft$" ws=3
