@@ -38,7 +38,7 @@ fi
 	dkcmd set win_minwh=50 win_minxy=10
 	dkcmd set mouse mod=mod4 move=button1 resize=button3
 
-	dkcmd set obey_motif=false
+	dkcmd set obey_motif=true
 	border_width=3
 	border_outer_width=1
 
@@ -55,7 +55,7 @@ fi
 	#
 	#
 
-	dkcmd rule class="steam" ws=9 float=true x=center y=center w=1280 h=720
+	dkcmd rule class="steam" ws=9 float=true x=center y=center # w=1920 h=1080
 	dkcmd rule class="obs" ws=4
 	dkcmd rule class="prismlauncher" ws=3
 	dkcmd rule class="^Minecraft$" ws=3
