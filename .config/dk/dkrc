@@ -59,6 +59,7 @@ fi
 	dkcmd rule class="obs" ws=4
 	dkcmd rule class="prismlauncher" ws=3
 	dkcmd rule class="^Minecraft$" ws=3
+	dkcmd rule class="virt-manager" ws=5 float=true
 
 	dkcmd rule class="pretzel.exe" ws=4
 	dkcmd rule class="discord" ws=2
